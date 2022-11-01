@@ -22,11 +22,6 @@ export default class WebService {
   public async getItemsList(url: string) {
     const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--incognito', '--disable-setuid-sandbox'] }); // for test disable the headlels mode,
     const page = await browser.newPage();
-    //await page.setViewport({ width: 1800, height: 1026 });
-
-    await page.goto(url, { waitUntil: 'load' });
-    await page.goto(url, { waitUntil: 'domcontentloaded' });
-    await page.goto(url, { waitUntil: 'networkidle0' });
     await page.goto(url, { waitUntil: 'networkidle2' });
     await autoScroll(page);
     await page.waitForSelector('#gallery-layout-container > div:nth-child(12)');
@@ -49,7 +44,7 @@ export default class WebService {
 
       return list;
     });
-    browser.close();
+    await browser.close();
     return items;
   }
 }
