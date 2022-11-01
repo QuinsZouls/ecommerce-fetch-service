@@ -25,7 +25,6 @@ export default class WebService {
 
       return list;
     });
-    console.log(items);
     return items;
   }
 }
