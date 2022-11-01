@@ -126,3 +126,6 @@ Se realizan utilizando jest:
 ```bash
 yarn test
 ```
+
+# Incidencias
+Inicialmente se tenía planeado usar jsdom para evitar el uso de chromium, sin embargo debido a la naturaleza del sitio (que es un sitio web dinámico hecho en react) fué necesario utilizar la librería puppeteer para obtener la información de los productos (ya que se creaban usando el virtual dom).
